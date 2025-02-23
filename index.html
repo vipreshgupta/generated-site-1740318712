@@ -1,0 +1,302 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Futuristic AI-Powered Recipe Website</title>
+  <style>
+    /* CSS Styles */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #2C3E50;
+      color: #FFFFFF;
+      overflow-x: hidden; /* Prevent horizontal scrollbar */
+    }
+
+    /* Navigation Bar */
+    nav {
+      background-color: #34495E;
+      padding: 1rem;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav a {
+      color: #FFFFFF;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      margin: 0 0.5rem;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: #1ABC9C;
+    }
+
+    /* Virtual Chef Section */
+    #virtual-chef {
+      text-align: center;
+      padding: 3rem 1rem;
+      position: relative;
+    }
+
+    #chef-animation {
+      width: 150px;
+      height: 150px;
+      background: url('https://via.placeholder.com/150') center/contain no-repeat; /* Placeholder for animated chef */
+      display: inline-block;
+      margin-bottom: 1rem;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    #chef-says {
+      background-color: rgba(26, 188, 156, 0.8);
+      color: #2C3E50;
+      padding: 1rem;
+      border-radius: 10px;
+      display: inline-block;
+      max-width: 80%;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Featured Recipes */
+    #featured-recipes {
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+
+    .recipe-card {
+      background-color: rgba(52, 73, 94, 0.7);
+      border-radius: 10px;
+      padding: 1rem;
+      margin: 1rem;
+      display: inline-block;
+      width: 300px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+      overflow: hidden; /* Ensure content doesn't overflow */
+    }
+
+    .recipe-card:hover {
+      transform: scale(1.05);
+    }
+
+    .recipe-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .recipe-card h3 {
+      color: #1ABC9C;
+      margin-top: 0.5rem;
+    }
+
+    /* Flavor Fusion Lab */
+    #flavor-fusion-lab {
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+
+    #fusion-interface {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+
+    .ingredient {
+      width: 80px;
+      height: 80px;
+      background: url('https://via.placeholder.com/80') center/contain no-repeat; /* Placeholder for ingredient image */
+      margin: 0.5rem;
+      border-radius: 50%;
+      cursor: grab;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      transition: transform 0.2s ease;
+    }
+
+    .ingredient:hover {
+      transform: scale(1.1);
+    }
+
+    /* Smart Pantry */
+    #smart-pantry {
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+
+    #pantry-list {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+
+    .pantry-item {
+      background-color: rgba(155, 89, 182, 0.7);
+      border-radius: 10px;
+      padding: 1rem;
+      margin: 0.5rem;
+      width: 150px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.3s ease;
+    }
+
+    .pantry-item:hover {
+      background-color: #9B59B6;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #34495E;
+      text-align: center;
+      padding: 1rem;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+
+    /* Responsiveness */
+    @media (max-width: 768px) {
+      nav {
+        padding: 0.5rem;
+      }
+
+      nav a {
+        display: block;
+        margin: 0.5rem 0;
+      }
+
+      #virtual-chef {
+        padding: 2rem 0.5rem;
+      }
+
+      .recipe-card {
+        width: 90%;
+      }
+
+      #fusion-interface, #pantry-list {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#featured-recipes">Recipes</a>
+    <a href="#flavor-fusion-lab">Flavor Fusion Lab</a>
+    <a href="#smart-pantry">Smart Pantry</a>
+    <a href="#settings">Settings</a>
+  </nav>
+
+  <!-- Virtual Chef Section -->
+  <section id="virtual-chef">
+    <div id="chef-animation"></div>
+    <div id="chef-says">
+      <p>Hello! I'm your virtual chef. Let's get cooking!</p>
+    </div>
+  </section>
+
+  <!-- Featured Recipes -->
+  <section id="featured-recipes">
+    <h2>Featured Recipes</h2>
+    <div class="recipe-card" onclick="showRecipeDetails('Recipe 1')">
+      <img src="https://via.placeholder.com/300x200" alt="Recipe 1">
+      <h3>Recipe 1</h3>
+    </div>
+    <div class="recipe-card" onclick="showRecipeDetails('Recipe 2')">
+      <img src="https://via.placeholder.com/300x200" alt="Recipe 2">
+      <h3>Recipe 2</h3>
+    </div>
+    <!-- Add more recipe cards as needed -->
+  </section>
+
+  <!-- Flavor Fusion Lab -->
+  <section id="flavor-fusion-lab">
+    <h2>Flavor Fusion Lab</h2>
+    <div id="fusion-interface">
+      <div class="ingredient" draggable="true"></div>
+      <div class="ingredient" draggable="true"></div>
+      <div class="ingredient" draggable="true"></div>
+      <!-- Add more ingredients as needed -->
+    </div>
+  </section>
+
+  <!-- Smart Pantry -->
+  <section id="smart-pantry">
+    <h2>Smart Pantry</h2>
+    <div id="pantry-list">
+      <div class="pantry-item">Item 1</div>
+      <div class="pantry-item">Item 2</div>
+      <!-- Add more pantry items as needed -->
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2024 Futuristic AI Recipe Website</p>
+  </footer>
+
+  <script>
+    // JavaScript Code
+
+    // Function to show recipe details (placeholder)
+    function showRecipeDetails(recipeName) {
+      alert(`Details for ${recipeName} will be displayed here.`);
+    }
+
+    // Basic drag-and-drop functionality for Flavor Fusion Lab
+    let draggedItem = null;
+
+    document.querySelectorAll('.ingredient').forEach(item => {
+      item.addEventListener('dragstart', function(event) {
+        draggedItem = this;
+        event.dataTransfer.effectAllowed = 'move';
+        setTimeout(() => {
+          this.style.opacity = '0.5';
+        }, 0);
+      });
+
+      item.addEventListener('dragend', function() {
+        draggedItem.style.opacity = '1';
+        draggedItem = null;
+      });
+    });
+
+    document.getElementById('fusion-interface').addEventListener('dragover', function(event) {
+      event.preventDefault();
+      event.dataTransfer.dropEffect = 'move';
+    });
+
+    document.getElementById('fusion-interface').addEventListener('drop', function(event) {
+      event.preventDefault();
+      if (draggedItem) {
+        // Placeholder for actual fusion logic
+        console.log('Ingredient dropped:', draggedItem);
+      }
+    });
+  </script>
+</body>
+</html>
